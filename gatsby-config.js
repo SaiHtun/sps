@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     title: "sps",
@@ -6,8 +8,8 @@ module.exports = {
     {
       resolve: "gatsby-source-contentful",
       options: {
-        accessToken: "8jhoiHT_yRlyEgN-CngOoCIt6KBccjKcKrbN7y6iL9I",
-        spaceId: "",
+        accessToken: `${process.env.ACCESS_TOKEN}`,
+        spaceId: `${process.env.SPACE_ID}`,
       },
     },
     "gatsby-plugin-styled-components",
@@ -21,6 +23,14 @@ module.exports = {
         path: "./src/images/",
       },
       __key: "images",
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/,
+        },
+      },
     },
   ],
 };
