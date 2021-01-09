@@ -60,6 +60,10 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: 500px) {
+    display: inline-block;
+  }
 `;
 
 const HeroMsg = styled.h2`
@@ -127,10 +131,9 @@ const MapWrapper = styled.div`
 
 const Title = styled.h2`
   display: inline-block;
-  width: 200px;
+  width: 180px;
   line-height: 20px;
   position: relative;
-  letter-spacing: 3px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
@@ -139,8 +142,14 @@ const Title = styled.h2`
     position: absolute;
     width: 80%;
     height: 2px;
-    margin-left: 100px;
+    margin-left: 60px;
     background-color: grey;
+  }
+
+  @media only screen and (max-width: 400px) {
+    ::after {
+      width: 40%;
+    }
   }
 `;
 
@@ -163,4 +172,8 @@ const Office = styled.p`
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
-const MapInfo = styled.div``;
+const MapInfo = styled.div`
+  @media only screen and (max-width: 500px) {
+    margin-top: 20px;
+  }
+`;

@@ -125,6 +125,7 @@ const Logo = styled.div`
 
   @media only screen and (max-width: 500px) {
     width: 200px;
+    text-align: center;
     margin: 0 auto;
   }
 `;

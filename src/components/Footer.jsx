@@ -35,18 +35,23 @@ const FooterContainer = styled.div`
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
   @media only screen and (max-width: 550px) {
-    grid-template-columns: 80px 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 
 const SocialMedia = styled.h3`
   display: flex;
   gap: 10px;
+
+  @media only screen and (max-width: 500px) {
+    gap: 5px;
+  }
 `;
 
 const CompanyName = styled.h3`
   font-size: 14px;
   color: grey;
+  font-weight: bold;
 
   @media only screen and (max-width: 550px) {
     font-size: 12px;
@@ -62,6 +67,6 @@ const VoilaSoft = styled.h3`
   color: grey;
 
   @media only screen and (max-width: 550px) {
-    font-size: 12px;
+    font-size: 9px;
   }
 `;

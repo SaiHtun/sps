@@ -48,7 +48,6 @@ export default function Charts() {
       type: "line",
       data: {
         labels: labels,
-
         datasets: [
           {
             label: "Clients",
@@ -68,6 +67,7 @@ export default function Charts() {
           duration: 2000,
           easing: "easeInOutExpo",
         },
+
         // customize chart options
       },
     });
@@ -93,6 +93,7 @@ export default function Charts() {
           duration: 1000,
           easing: "easeInOutExpo",
         },
+        maintainAspectRatio: false,
         // customize chart options
       },
     });
@@ -119,6 +120,7 @@ export default function Charts() {
           duration: 1000,
           easing: "easeInOutExpo",
         },
+        maintainAspectRatio: false,
         // customize chart options
       },
     });
@@ -135,7 +137,9 @@ export default function Charts() {
           <canvas ref={raderRef}></canvas>
         </RaderWrapper>
       </Wrapper>
-      <canvas ref={chartRef}></canvas>
+      <ChartWrapper>
+        <canvas ref={chartRef}></canvas>
+      </ChartWrapper>
     </ChartsContainer>
   );
 }
@@ -148,11 +152,12 @@ const ChartsContainer = styled.div`
   background-color: white;
 `;
 
+const ChartWrapper = styled.div``;
+
 const Title = styled.h1`
   display: inline-block;
   width: 200px;
   line-height: 20px;
-  letter-spacing: 3px;
   position: relative;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -162,7 +167,7 @@ const Title = styled.h1`
     position: absolute;
     width: 80%;
     height: 2px;
-    margin-left: 120px;
+    margin-left: 50px;
     background-color: grey;
   }
 `;
