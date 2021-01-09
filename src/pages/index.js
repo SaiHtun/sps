@@ -5,8 +5,8 @@ import styled from "styled-components";
 import MainLayout from "../layouts/MainLayout";
 import Info from "../components/Info";
 // awesome slider
-import AwesomeSlider from "react-awesome-slider";
-import withAutoplay from "react-awesome-slider/dist/autoplay";
+// import AwesomeSlider from "react-awesome-slider";
+// import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 // colors
 import { colors } from "../utilities/constants";
@@ -14,7 +14,7 @@ import { colors } from "../utilities/constants";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const AutoplaySlider = withAutoplay(AwesomeSlider);
+// const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const IndexPage = () => {
   useEffect(() => {
@@ -26,13 +26,18 @@ const IndexPage = () => {
   return (
     <MainLayout>
       {/* hero sliders */}
-      <Container>
+      {/* <Container>
         <AutoplaySlider cancelOnInteraction={false} interval={6000}>
           <div data-src="/subsidiaries/sub1.JPG" />
           <div data-src="/subsidiaries/sub2.JPG" />
           <div data-src="/subsidiaries/sub3.JPG" />
         </AutoplaySlider>
-      </Container>
+      </Container> */}
+      <BlueBox>
+        <h1>
+          Welcome to SPS business group !!
+        </h1>
+      </BlueBox>
       {/* Infos */}
       {infos.map((info, i) => {
         return <Info key={i} info={info} data-aos="fade-in"></Info>;
@@ -43,20 +48,42 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-const Container = styled.div`
-  .awssld__wrapper {
-    position: relative;
-    height: 600px;
-  }
+// const Container = styled.div`
+//   .awssld__wrapper {
+//     position: relative;
+//     height: 600px;
+//   }
 
-  .awssld__bullets {
+//   .awssld__bullets {
+//     position: absolute;
+//     bottom: 50px;
+//     z-index: 10;
+
+//     button {
+//       width: 10px;
+//       height: 10px;
+//       margin-right: 20px;
+//       background-color: white;
+//     }
+//   }
+// `;
+
+const BlueBox = styled.div`
+  width: 100vw;
+  height: 500px;
+  background-color: ${colors.primary};
+
+  h1 {
     position: absolute;
-    bottom: 50px;
-    z-index: 10;
+    top: 150px;
+    color: white;
+    width: 300px;
+    display: inline-block;
+    font-size: 50px;
+    margin-left: 100px;
 
-    button {
-      margin-right: 20px;
-      background-color: white;
+    @media only screen and (max-width: 500px) {
+      margin-left: 20px;
     }
   }
 `;

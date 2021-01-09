@@ -4,15 +4,22 @@ import styled, { css } from "styled-components";
 // constants
 import { colors } from "../utilities/constants";
 
-let navArray = ["Profile", "Services", "Careers", "News", "Contact"];
+let navArray = ["profile", "services", "careers", "news", "contact"];
 
 export default function Nav() {
   const [click, setClick] = useState(false);
   // const [openMenu, setOpenMenu] = useState(false);
 
   const Links = navArray.map((nav, i) => {
+    if (nav === "profile") {
+      return (
+        <Link to="/" key={i}>
+          <li>{nav}</li>
+        </Link>
+      );
+    }
     return (
-      <Link key={i}>
+      <Link to={`/${nav}`} key={i}>
         <li>{nav}</li>
       </Link>
     );
@@ -32,7 +39,7 @@ export default function Nav() {
             <div className="box two"></div>
             <div className="box three"></div>
           </Hamburger>
-          <Logo>
+          <Logo clicked={click}>
             <Name>SPS business group</Name>
           </Logo>
           <Menu>{Links}</Menu>
@@ -44,16 +51,16 @@ export default function Nav() {
 }
 
 const Navbar = styled.div`
-  position: relative;
+  position: absolute;
   z-index: 200;
   height: 60px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 `;
 
 const Container = styled.div`
   /* z-index: 100; */
   width: 100vw;
   height: 60px;
-  background-color: ${colors.primary};
   color: white;
   display: flex;
   justify-content: space-between;
@@ -69,24 +76,38 @@ const Container = styled.div`
 
 const DropMenu = styled.ul`
   width: 100vw;
+  min-height: 320px;
   height: max-content;
   text-align: center;
-  background-color: ${colors.primary};
-  padding: 10px 0px;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   color: white;
   text-transform: uppercase;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   position: absolute;
-  z-index: 20;
-  transform: translateY(-300px);
+  z-index: 30;
+  transform: translateY(-400px);
   transition: all 0.5s ease-in-out;
+
+  &:first-child(a) {
+    margin-top: 80px;
+  }
 
   li {
     z-index: 100;
-    font-size: 14px;
+    font-size: 13px;
     padding: 20px 0px;
     /* border-bottom: 1px solid ${colors.secondary}; */
+  }
+
+  a {
+    list-style: none;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
   }
 
   ${(props) =>
@@ -99,7 +120,13 @@ const DropMenu = styled.ul`
 `;
 
 const Logo = styled.div`
-  z-index: 1000;
+  opacity: ${(props) => (props.clicked ? 0 : 1)};
+  transition: 0.5s ease-in-out;
+
+  @media only screen and (max-width: 500px) {
+    width: 200px;
+    margin: 0 auto;
+  }
 `;
 
 const Name = styled.h2`
@@ -113,6 +140,13 @@ const Menu = styled.ul`
   align-items: center;
   font-size: 13px;
   text-transform: uppercase;
+
+  a {
+    list-style: none;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+  }
 
   @media only screen and (max-width: 900px) {
     display: none;

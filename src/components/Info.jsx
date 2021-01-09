@@ -104,7 +104,7 @@ const InfoContainer = styled.div`
   color: ${(props) => (props.height ? "white" : "black")};
   line-height: 150%;
   display: grid;
-  grid-template-columns: 500px auto;
+  grid-template-columns: 400px auto;
   align-content: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -172,8 +172,9 @@ const Mission = styled.div`
 `;
 
 const Header = styled.h2`
-  font-size: 30px;
+  font-size: 46px;
   font-weight: 600;
+  line-height: 46px;
   display: inline-block;
 `;
 
